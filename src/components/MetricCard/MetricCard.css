@@ -1,0 +1,138 @@
+.metric-card {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  gap: 13px;
+  padding: 16px 17px;
+  overflow: hidden;
+  border: 1px solid rgba(77, 209, 255, 0.24);
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(13, 37, 78, 0.9), rgba(6, 18, 47, 0.72));
+  box-shadow: inset 0 0 24px rgba(18, 157, 255, 0.08), 0 12px 34px rgba(0, 0, 0, 0.24);
+  animation: metric-enter 700ms ease both, metric-pulse 4.8s ease-in-out infinite;
+  transition: border-color 200ms ease, transform 200ms ease, box-shadow 200ms ease;
+}
+
+.metric-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(104, 232, 255, 0.68);
+  box-shadow: 0 0 26px rgba(31, 204, 255, 0.18), 0 16px 44px rgba(0, 0, 0, 0.32);
+}
+
+.metric-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 80% 20%, var(--metric-glow), transparent 42%);
+  opacity: 0.85;
+}
+
+.metric-card::after {
+  content: '';
+  position: absolute;
+  right: -28px;
+  bottom: -38px;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 1px solid var(--metric-line);
+}
+
+.metric-card--cyan {
+  --metric-glow: rgba(38, 224, 255, 0.24);
+  --metric-line: rgba(38, 224, 255, 0.48);
+}
+
+.metric-card--blue {
+  --metric-glow: rgba(53, 124, 255, 0.25);
+  --metric-line: rgba(53, 124, 255, 0.5);
+}
+
+.metric-card--purple {
+  --metric-glow: rgba(151, 92, 255, 0.25);
+  --metric-line: rgba(151, 92, 255, 0.48);
+}
+
+.metric-card--orange {
+  --metric-glow: rgba(255, 166, 77, 0.23);
+  --metric-line: rgba(255, 166, 77, 0.5);
+}
+
+.metric-icon,
+.metric-content {
+  position: relative;
+  z-index: 1;
+}
+
+.metric-icon {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  color: #dffaff;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(36, 217, 255, 0.24), rgba(110, 82, 255, 0.18));
+  box-shadow: inset 0 0 18px rgba(255, 255, 255, 0.07);
+}
+
+.metric-content {
+  min-width: 0;
+}
+
+.metric-title {
+  color: #9dc5de;
+  font-size: 13px;
+}
+
+.metric-value-row {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+  margin: 5px 0 4px;
+}
+
+.metric-value-row strong {
+  font-family: 'DIN Alternate', 'Roboto Mono', monospace;
+  font-size: clamp(23px, 1.9vw, 34px);
+  line-height: 1;
+  color: #ffffff;
+  text-shadow: 0 0 14px rgba(46, 221, 255, 0.42);
+}
+
+.metric-value-row em {
+  color: #68e8ff;
+  font-style: normal;
+  font-size: 13px;
+}
+
+.metric-trend {
+  color: #42f5ab;
+  font-size: 12px;
+}
+
+.metric-trend--down {
+  color: #ffbd6f;
+}
+
+@keyframes metric-enter {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes metric-pulse {
+  0%, 100% {
+    filter: brightness(1);
+  }
+
+  50% {
+    filter: brightness(1.08);
+  }
+}

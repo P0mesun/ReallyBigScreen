@@ -1,0 +1,7 @@
+node_modules
+dist
+.local-node
+.npm-cache
+.vite-dev.log
+.DS_Store
+.env.local
